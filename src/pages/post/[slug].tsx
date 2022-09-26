@@ -1,8 +1,19 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
 
+import { useRouter } from 'next/router';
+
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { getPrismicClient } from '../../services/prismic';
 
-import commonStyles from '../../styles/common.module.scss';
+import { ptBR } from 'date-fns/locale';
+import { format, parseISO } from 'date-fns';
+
+import { RichText } from 'prismic-dom';
+import Prismic from '@prismicio/client';
+
+import { FiCalendar, FiUser, FiClock } from 'react-icons/fi';
+
 import styles from './post.module.scss';
 
 interface Post {
@@ -26,9 +37,20 @@ interface PostProps {
   post: Post;
 }
 
-// export default function Post() {
-//   // TODO
-// }
+export default function Post() {
+  return (
+    <>
+      <Head>
+        <title>Post | SpaceTraveling</title>
+      </Head>
+
+      {/* banner */}
+      <section className={styles.banner}>
+
+      </section>
+    </>
+  );
+}
 
 // export const getStaticPaths = async () => {
 //   const prismic = getPrismicClient({});
