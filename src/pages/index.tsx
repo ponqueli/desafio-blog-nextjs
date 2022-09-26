@@ -51,6 +51,28 @@ export default function Home() { //{ postsPagination: { next_page, results } }: 
               </div>
             </a>
           </Link>
+          <Link href={`/post/test2`}>
+            <a>
+              <h1>Titulo</h1>
+              <p>Subtitulo</p>
+              <div className={styles.postCreation}>
+                <time>
+                  <FiCalendar />
+                  15 Mar 2021
+                </time>
+                <p>
+                  <FiUser />
+                  Autor
+                </p>
+              </div>
+            </a>
+          </Link>
+          <button
+            type="button"
+            onClick={() => {}}
+            >
+            Carregar mais posts
+          </button>
         </article>
       </main>
     </>
