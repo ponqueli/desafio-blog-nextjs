@@ -14,6 +14,9 @@
     <li><a href="#instalação-e-utilização">Instalação e utilização</a></li>
     <li><a href="#licença">Licença</a></li>
     <li><a href="#agradecimentos">Agradecimentos</a></li>
+    <li><a
+    href="https://zeh-blog.vercel.app/"> Deploy no Vercel - Clique aqui e veja a obra de arte </a>
+    </li>
   </ol>
 
 ## Visão geral do projeto
