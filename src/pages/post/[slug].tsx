@@ -40,8 +40,8 @@ export default function Post({ post }: PostProps) {
     let fullText = '';
     const readWordsPerMinute = 200;
 
-    return post.data.content.reduce((previousValue, currentValue) => {
-      fullText += currentValue.heading + PrismicDOM.RichText.asText(currentValue.body)
+    return post?.data?.content?.reduce((previousValue, currentValue) => {
+      fullText += currentValue?.heading + PrismicDOM.RichText.asText(currentValue?.body)
       return Math.ceil(fullText.split(/\s/g).length / readWordsPerMinute);
     }, 0)
   }, [post]);
@@ -59,27 +59,27 @@ export default function Post({ post }: PostProps) {
   return (
     <>
       <Head>
-        <title>{post.data.title} | SpaceTraveling</title>
+        <title>{post?.data?.title} | SpaceTraveling</title>
       </Head>
 
-      <img className={styles.banner} src={post.data.banner.url} alt="banner" />      
+      <img className={styles.banner} src={post?.data?.banner?.url} alt="banner" />      
 
       <main className={styles.container}>
         <article className={styles.postContent}>
-          <h1>{post.data.title}</h1>
+          <h1>{post?.data?.title}</h1>
           <div className={styles.postInfo}>
             <time>
-              <FiCalendar /> { format( parseISO(post.first_publication_date), 'dd MMM yyyy', { locale: ptBR, })}
+              <FiCalendar /> { format( parseISO(post?.first_publication_date), 'dd MMM yyyy', { locale: ptBR, })}
             </time>
             <p>
-              <FiUser /> {post.data.author}
+              <FiUser /> {post?.data?.author}
             </p>
             <time>
               <FiClock /> {readTime} min
             </time>
           </div>
 
-          {post.data.content.map(({ heading, body }) => (
+          {post?.data?.content?.map(({ heading, body }) => (
             <Fragment key={heading}>
               <h2>{heading}</h2>
               <div
@@ -123,13 +123,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     first_publication_date: response.first_publication_date,
     uid: response.uid,
     data: {
-      title: response.data.title,
-      subtitle: response.data.subtitle,
+      title: response.data?.title,
+      subtitle: response.data?.subtitle,
       banner: {
-        url: response.data.banner.url,
+        url: response.data?.banner?.url,
       },
-      author:  response.data.author,
-      content: response.data.content
+      author:  response.data?.author,
+      content: response.data?.content
     },
   };
 
