@@ -69,7 +69,7 @@ export default function Post({ post }: PostProps) {
           <h1>{post.data.title}</h1>
           <div className={styles.postInfo}>
             <time>
-              <FiCalendar /> {post.first_publication_date}
+              <FiCalendar /> { format( parseISO(post.first_publication_date), 'dd MMM yyyy', { locale: ptBR, })}
             </time>
             <p>
               <FiUser /> {post.data.author}
@@ -120,11 +120,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const response = await prismic.getByUID('zehblog', String(slug), {});
 
   const post = {
-    first_publication_date: format(
-      parseISO(response.first_publication_date),
-      'dd MMM yyyy',
-      { locale: ptBR, }
-    ),
+    first_publication_date: response.first_publication_date,
     uid: response.uid,
     data: {
       title: response.data.title,
